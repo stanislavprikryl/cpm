@@ -1,0 +1,710 @@
+<h2 id="crossreference" class="list">Cross-reference for Common Provenance Model (CPM) Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Common Provenance Model (CPM) Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a></li>
+  <li><a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a></li>
+  <li><a href="#CurrentAgent" title="https://www.commonprovenancemodel.org/cpm#CurrentAgent">CurrentAgent</a></li>
+  <li><a href="#ForwardConnector" title="https://www.commonprovenancemodel.org/cpm#ForwardConnector">ForwardConnector</a></li>
+  <li><a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a></li>
+  <li><a href="#IdentifierEntity" title="https://www.commonprovenancemodel.org/cpm#IdentifierEntity">IdentifierEntity</a></li>
+  <li><a href="#MainActivity" title="https://www.commonprovenancemodel.org/cpm#MainActivity">MainActivity</a></li>
+  <li><a href="#http://www.w3.org/2002/07/owl#Thing" title="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Role" title="http://www.w3.org/ns/prov#Role">prov:Role</a></li>
+  <li><a href="#ReceiverAgent" title="https://www.commonprovenancemodel.org/cpm#ReceiverAgent">ReceiverAgent</a></li>
+  <li><a href="#SenderAgent" title="https://www.commonprovenancemodel.org/cpm#SenderAgent">SenderAgent</a></li>
+ </ul>
+ <div class="entity" id="BackwardConnector">
+  <h3>BackwardConnector<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#BackwardConnector</p>
+  <div class="comment">
+   <span class="markdown">A connector that represents a received described object</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#provenanceServiceUri" title="https://www.commonprovenancemodel.org/cpm#provenanceServiceUri">provenanceServiceURI</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedBundleHashValue" title="https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue">referencedBundleHashValue</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedBundleId" title="https://www.commonprovenancemodel.org/cpm#referencedBundleId">referencedBundleID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedBundleSpecV" title="https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV">referencedBundleSpecificationVersion</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedMetaBundleId" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId">referencedMetaBundleID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedMetaBundleSpecV" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV">referencedMetaBundleSpecificationVersion</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CPMType">
+  <h3>CPM Type Vocabulary<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#CPMType</p>
+  <div class="comment">
+   <span class="markdown">A class representing the vocabulary of normative 'prov:type' values defined by the Common Provenance Framework.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#backwardConnector" title="https://www.commonprovenancemodel.org/cpm#backwardConnector">Backward Connector Role</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#currentAgent" title="https://www.commonprovenancemodel.org/cpm#currentAgent">Current Agent Role</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#forwardConnector" title="https://www.commonprovenancemodel.org/cpm#forwardConnector">Forward Connector Role</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#id" title="https://www.commonprovenancemodel.org/cpm#id">Identifier Entity Role</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#mainActivity" title="https://www.commonprovenancemodel.org/cpm#mainActivity">Main Activity Role</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#receiverAgent" title="https://www.commonprovenancemodel.org/cpm#receiverAgent">Receiver Agent Role</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#senderAgent" title="https://www.commonprovenancemodel.org/cpm#senderAgent">Sender Agent Role</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#forwardConnectorSpec" title="https://www.commonprovenancemodel.org/cpm#forwardConnectorSpec">forwardConnectorSpec</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CurrentAgent">
+  <h3>CurrentAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#CurrentAgent</p>
+  <div class="comment">
+   <span class="markdown">A provenance structure that represents a provenance controller</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ForwardConnector">
+  <h3>ForwardConnector<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#ForwardConnector</p>
+  <div class="comment">
+   <span class="markdown">A connector that represents a described object that can be or has been sent from a sender to a receiver</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ForwardConnectorSpecialized">
+  <h3>ForwardConnectorSpecialized<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized</p>
+  <div class="comment">
+   <span class="markdown">A connector that represents a described object that has been sent from a sender to a receiver</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ForwardConnector" title="https://www.commonprovenancemodel.org/cpm#ForwardConnector">ForwardConnector</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#provenanceServiceUri" title="https://www.commonprovenancemodel.org/cpm#provenanceServiceUri">provenanceServiceURI</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedBundleHashValue" title="https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue">referencedBundleHashValue</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedBundleId" title="https://www.commonprovenancemodel.org/cpm#referencedBundleId">referencedBundleID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedBundleSpecV" title="https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV">referencedBundleSpecificationVersion</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedMetaBundleId" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId">referencedMetaBundleID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedMetaBundleSpecV" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV">referencedMetaBundleSpecificationVersion</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="IdentifierEntity">
+  <h3>IdentifierEntity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#IdentifierEntity</p>
+  <div class="comment">
+   <span class="markdown">A provenance structure that represents an external identifier</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MainActivity">
+  <h3>MainActivity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#MainActivity</p>
+  <div class="comment">
+   <span class="markdown">A provenance structure that represents the described activity documented in a particular provenance component</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#referencedMetaBundleId" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId">referencedMetaBundleID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#referencedMetaBundleSpecV" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV">referencedMetaBundleSpecificationVersion</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/2002/07/owl#Thing">
+  <h3>owl:Thing<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2002/07/owl#Thing</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Activity">
+  <h3>prov:Activity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Activity</p>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#MainActivity" title="https://www.commonprovenancemodel.org/cpm#MainActivity">MainActivity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#externalId" title="https://www.commonprovenancemodel.org/cpm#externalId">externalID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#externalIdType" title="https://www.commonprovenancemodel.org/cpm#externalIdType">externalID type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Agent">
+  <h3>prov:Agent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Agent</p>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#CurrentAgent" title="https://www.commonprovenancemodel.org/cpm#CurrentAgent">CurrentAgent</a> <sup class="type-c" title="class">c</sup>, <a href="#ReceiverAgent" title="https://www.commonprovenancemodel.org/cpm#ReceiverAgent">ReceiverAgent</a> <sup class="type-c" title="class">c</sup>, <a href="#SenderAgent" title="https://www.commonprovenancemodel.org/cpm#SenderAgent">SenderAgent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#contactIdPid" title="https://www.commonprovenancemodel.org/cpm#contactIdPid">contactPID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#externalId" title="https://www.commonprovenancemodel.org/cpm#externalId">externalID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#externalIdType" title="https://www.commonprovenancemodel.org/cpm#externalIdType">externalID type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Entity">
+  <h3>prov:Entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Entity</p>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a> <sup class="type-c" title="class">c</sup>, <a href="#ForwardConnector" title="https://www.commonprovenancemodel.org/cpm#ForwardConnector">ForwardConnector</a> <sup class="type-c" title="class">c</sup>, <a href="#IdentifierEntity" title="https://www.commonprovenancemodel.org/cpm#IdentifierEntity">IdentifierEntity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#describedObjectType" title="https://www.commonprovenancemodel.org/cpm#describedObjectType">describedObjectType</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#externalId" title="https://www.commonprovenancemodel.org/cpm#externalId">externalID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#externalIdType" title="https://www.commonprovenancemodel.org/cpm#externalIdType">externalID type</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasId" title="https://www.commonprovenancemodel.org/cpm#hasId">hasID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hashAlg" title="https://www.commonprovenancemodel.org/cpm#hashAlg">hashAlgorithm</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hashValue" title="https://www.commonprovenancemodel.org/cpm#hashValue">hashValue</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Role">
+  <h3>prov:Role<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Role</p>
+ </div>
+ <div class="entity" id="ReceiverAgent">
+  <h3>ReceiverAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#ReceiverAgent</p>
+  <div class="comment">
+   <span class="markdown">A provenance structure that represents a receiver in the context of passing a described object between two provenance controllers</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SenderAgent">
+  <h3>SenderAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#SenderAgent</p>
+  <div class="comment">
+   <span class="markdown">A provenance structure that represents a sender in the context of passing a described object between two provenance controllers</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://www.w3.org/ns/prov#type" title="http://www.w3.org/ns/prov#type">type</a></li>
+ </ul>
+ <div class="entity" id="http://www.w3.org/ns/prov#type">
+  <h3>type<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#type</p>
+  <div class="comment">
+   <span class="markdown">A standard PROV property to define the type of a provenance entity.</span>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#contactIdPid" title="https://www.commonprovenancemodel.org/cpm#contactIdPid">contactPID</a></li>
+  <li><a href="#describedObjectType" title="https://www.commonprovenancemodel.org/cpm#describedObjectType">describedObjectType</a></li>
+  <li><a href="#externalId" title="https://www.commonprovenancemodel.org/cpm#externalId">externalID</a></li>
+  <li><a href="#externalIdType" title="https://www.commonprovenancemodel.org/cpm#externalIdType">externalID type</a></li>
+  <li><a href="#hashAlg" title="https://www.commonprovenancemodel.org/cpm#hashAlg">hashAlgorithm</a></li>
+  <li><a href="#hashValue" title="https://www.commonprovenancemodel.org/cpm#hashValue">hashValue</a></li>
+  <li><a href="#hasId" title="https://www.commonprovenancemodel.org/cpm#hasId">hasID</a></li>
+  <li><a href="#provenanceServiceUri" title="https://www.commonprovenancemodel.org/cpm#provenanceServiceUri">provenanceServiceURI</a></li>
+  <li><a href="#referencedBundleHashValue" title="https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue">referencedBundleHashValue</a></li>
+  <li><a href="#referencedBundleId" title="https://www.commonprovenancemodel.org/cpm#referencedBundleId">referencedBundleID</a></li>
+  <li><a href="#referencedBundleSpecV" title="https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV">referencedBundleSpecificationVersion</a></li>
+  <li><a href="#referencedMetaBundleId" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId">referencedMetaBundleID</a></li>
+  <li><a href="#referencedMetaBundleSpecV" title="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV">referencedMetaBundleSpecificationVersion</a></li>
+ </ul>
+ <div class="entity" id="contactIdPid">
+  <h3>contactPID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#contactIdPid</p>
+  <div class="comment">
+   <span class="markdown">A resolvable persistent identifier dereferencing to actual contact information (e.g. email address) that can be used to contact a person or organization represented by a particular agent. The value of this attribute is a persistent identifier, thus it has the form of a qualified name.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="describedObjectType">
+  <h3>describedObjectType<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#describedObjectType</p>
+  <div class="comment">
+   <span class="markdown">Type of the object represented by the PROV entity</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="externalId">
+  <h3>externalID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#externalId</p>
+  <div class="comment">
+   <span class="markdown">External identifier of a described object or a described activity, which is represented by a PROV entity, PROV activity or PROV agent.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="externalIdType">
+  <h3>externalID type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#externalIdType</p>
+  <div class="comment">
+   <span class="markdown">Type of the external identifier</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hashAlg">
+  <h3>hashAlgorithm<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#hashAlg</p>
+  <div class="comment">
+   <span class="markdown">Algorithm used to create a hashValue</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hashValue">
+  <h3>hashValue<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#hashValue</p>
+  <div class="comment">
+   <span class="markdown">A hash value of a described object, which is represented by the PROV entity, presuming that the described object is a digital object and not a physical object</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasId">
+  <h3>hasID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#hasId</p>
+  <div class="comment">
+   <span class="markdown">An indication whether the PROV entity having this attribute has an external identifier expressed as a standalone entity</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="provenanceServiceUri">
+  <h3>provenanceServiceURI<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#provenanceServiceUri</p>
+  <div class="comment">
+   <span class="markdown">URI of a service where a provenance component can be requested using its identifier</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="referencedBundleHashValue">
+  <h3>referencedBundleHashValue<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue</p>
+  <div class="comment">
+   <span class="markdown">A hash value of a PROV bundle referenced by the connector in which the attribute is present</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="referencedBundleId">
+  <h3>referencedBundleID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#referencedBundleId</p>
+  <div class="comment">
+   <span class="markdown">Identifier of a PROV bundle referenced by the connector that contains this attribute</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="referencedBundleSpecV">
+  <h3>referencedBundleSpecificationVersion<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV</p>
+  <div class="comment">
+   <span class="markdown">Identification of the CPM version to which the referenced bundle conforms</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="referencedMetaBundleId">
+  <h3>referencedMetaBundleID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId</p>
+  <div class="comment">
+   <span class="markdown">Identifier of a PROV bundle that contains respective provenance component’s metadata in the standardized representation</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#MainActivity" title="https://www.commonprovenancemodel.org/cpm#MainActivity">MainActivity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="referencedMetaBundleSpecV">
+  <h3>referencedMetaBundleSpecificationVersion<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV</p>
+  <div class="comment">
+   <span class="markdown">Identification of the CPM version to which the referenced bundle conforms</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#BackwardConnector" title="https://www.commonprovenancemodel.org/cpm#BackwardConnector">BackwardConnector</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ForwardConnectorSpecialized" title="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">ForwardConnectorSpecialized</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#MainActivity" title="https://www.commonprovenancemodel.org/cpm#MainActivity">MainActivity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#backwardConnector" title="https://www.commonprovenancemodel.org/cpm#backwardConnector">Backward Connector Role</a></li>
+  <li><a href="#currentAgent" title="https://www.commonprovenancemodel.org/cpm#currentAgent">Current Agent Role</a></li>
+  <li><a href="#forwardConnector" title="https://www.commonprovenancemodel.org/cpm#forwardConnector">Forward Connector Role</a></li>
+  <li><a href="#forwardConnectorSpec" title="https://www.commonprovenancemodel.org/cpm#forwardConnectorSpec">forwardConnectorSpec</a></li>
+  <li><a href="#id" title="https://www.commonprovenancemodel.org/cpm#id">Identifier Entity Role</a></li>
+  <li><a href="#mainActivity" title="https://www.commonprovenancemodel.org/cpm#mainActivity">Main Activity Role</a></li>
+  <li><a href="#receiverAgent" title="https://www.commonprovenancemodel.org/cpm#receiverAgent">Receiver Agent Role</a></li>
+  <li><a href="#senderAgent" title="https://www.commonprovenancemodel.org/cpm#senderAgent">Sender Agent Role</a></li>
+ </ul>
+ <div class="entity" id="backwardConnector">
+  <h3>Backward Connector Role<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#backwardConnector</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing a backward connector.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="currentAgent">
+  <h3>Current Agent Role<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#currentAgent</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing a current agent.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="forwardConnector">
+  <h3>Forward Connector Role<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#forwardConnector</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing a forward connector.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="forwardConnectorSpec">
+  <h3>forwardConnectorSpec<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#forwardConnectorSpec</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing a forward connector specialized.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="id">
+  <h3>Identifier Entity Role<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#id</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing an identifier entity.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="mainActivity">
+  <h3>Main Activity Role<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#mainActivity</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing a main activity.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="receiverAgent">
+  <h3>Receiver Agent Role<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#receiverAgent</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing a receiver agent.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="senderAgent">
+  <h3>Sender Agent Role<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://www.commonprovenancemodel.org/cpm#senderAgent</p>
+  <div class="comment">
+   <span class="markdown">CPM type value representing a sender agent.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CPMType" title="https://www.commonprovenancemodel.org/cpm#CPMType">CPM Type Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>

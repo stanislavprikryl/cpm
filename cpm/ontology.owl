@@ -1,0 +1,797 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://www.commonprovenancemodel.org/cpm#"
+     xml:base="https://www.commonprovenancemodel.org/cpm"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://www.commonprovenancemodel.org/cpm#">
+        <owl:versionIRI rdf:resource="https://www.commonprovenancemodel.org/cpm/1.0.0/cpm.ttl"/>
+        <terms:abstract xml:lang="en">The Common Provenance Model (CPM) ontology provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments.</terms:abstract>
+        <terms:contributor>RNDr. Rudolf Wittner</terms:contributor>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-05</terms:created>
+        <terms:creator xml:lang="en">Bc. Stanislav Přikryl</terms:creator>
+        <terms:description xml:lang="en">The normative OWL 2 ontology representing the Common Provenance Model (CPM). It is designed to support the traceability of samples and data in multi-organizational environments, as defined by the Common Provenance Framework (CPF).</terms:description>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-17</terms:modified>
+        <terms:source rdf:resource="https://doi.org/10.5281/zenodo.18063102"/>
+        <terms:title xml:lang="en">Common Provenance Model (CPM) Ontology</terms:title>
+        <vann:preferredNamespacePrefix>cpm</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://www.commonprovenancemodel.org/cpm#</vann:preferredNamespaceUri>
+        <rdfs:seeAlso rdf:resource="https://github.com/Common-Provenance-Framework"/>
+        <rdfs:seeAlso rdf:resource="https://www.commonprovenancemodel.org/"/>
+        <owl:versionInfo xml:lang="en">1.0.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/abstract -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/abstract"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/source -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/ns/prov#type -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#type">
+        <rdfs:comment xml:lang="en">A standard PROV property to define the type of a provenance entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#contactIdPid -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#contactIdPid">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">A resolvable persistent identifier dereferencing to actual contact information (e.g. email address) that can be used to contact a person or organization represented by a particular agent. The value of this attribute is a persistent identifier, thus it has the form of a qualified name.</rdfs:comment>
+        <rdfs:label xml:lang="en">contactPID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#describedObjectType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#describedObjectType">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Type of the object represented by the PROV entity</rdfs:comment>
+        <rdfs:label xml:lang="en">describedObjectType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#externalId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#externalId">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Activity"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Agent"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Entity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">External identifier of a described object or a described activity, which is represented by a PROV entity, PROV activity or PROV agent.</rdfs:comment>
+        <rdfs:label xml:lang="en">externalID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#externalIdType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#externalIdType">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Activity"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Agent"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Entity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Type of the external identifier</rdfs:comment>
+        <rdfs:label xml:lang="en">externalID type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#hasId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#hasId">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">An indication whether the PROV entity having this attribute has an external identifier expressed as a standalone entity</rdfs:comment>
+        <rdfs:label xml:lang="en">hasID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#hashAlg -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#hashAlg">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Algorithm used to create a hashValue</rdfs:comment>
+        <rdfs:label xml:lang="en">hashAlgorithm</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#hashValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#hashValue">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A hash value of a described object, which is represented by the PROV entity, presuming that the described object is a digital object and not a physical object</rdfs:comment>
+        <rdfs:label xml:lang="en">hashValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#provenanceServiceUri -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#provenanceServiceUri">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#BackwardConnector"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">URI of a service where a provenance component can be requested using its identifier</rdfs:comment>
+        <rdfs:label xml:lang="en">provenanceServiceURI</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#BackwardConnector"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A hash value of a PROV bundle referenced by the connector in which the attribute is present</rdfs:comment>
+        <rdfs:label xml:lang="en">referencedBundleHashValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#referencedBundleId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#referencedBundleId">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#BackwardConnector"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">Identifier of a PROV bundle referenced by the connector that contains this attribute</rdfs:comment>
+        <rdfs:label xml:lang="en">referencedBundleID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#BackwardConnector"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Identification of the CPM version to which the referenced bundle conforms</rdfs:comment>
+        <rdfs:label xml:lang="en">referencedBundleSpecificationVersion</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#BackwardConnector"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#MainActivity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">Identifier of a PROV bundle that contains respective provenance component’s metadata in the standardized representation</rdfs:comment>
+        <rdfs:label xml:lang="en">referencedMetaBundleID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#BackwardConnector"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized"/>
+                    <rdf:Description rdf:about="https://www.commonprovenancemodel.org/cpm#MainActivity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Identification of the CPM version to which the referenced bundle conforms</rdfs:comment>
+        <rdfs:label xml:lang="en">referencedMetaBundleSpecificationVersion</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:label>owl:Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity">
+        <rdfs:label>prov:Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Agent -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent">
+        <rdfs:label>prov:Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity">
+        <rdfs:label>prov:Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Role -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Role">
+        <rdfs:label>prov:Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#BackwardConnector -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#BackwardConnector">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#backwardConnector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#hashAlg"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedBundleId"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A connector that represents a received described object</rdfs:comment>
+        <rdfs:label xml:lang="en">BackwardConnector</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#CPMType -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#CPMType">
+        <rdfs:comment xml:lang="en">A class representing the vocabulary of normative &apos;prov:type&apos; values defined by the Common Provenance Framework.</rdfs:comment>
+        <rdfs:label xml:lang="en">CPM Type Vocabulary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#CurrentAgent -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#CurrentAgent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#currentAgent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A provenance structure that represents a provenance controller</rdfs:comment>
+        <rdfs:label xml:lang="en">CurrentAgent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#ForwardConnector -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnector">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#forwardConnector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A connector that represents a described object that can be or has been sent from a sender to a receiver</rdfs:comment>
+        <rdfs:label xml:lang="en">ForwardConnector</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#ForwardConnectorSpecialized">
+        <rdfs:subClassOf rdf:resource="https://www.commonprovenancemodel.org/cpm#ForwardConnector"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#forwardConnectorSpec"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#hashAlg"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#provenanceServiceUri"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedBundleHashValue"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedBundleId"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedBundleSpecV"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A connector that represents a described object that has been sent from a sender to a receiver</rdfs:comment>
+        <rdfs:label xml:lang="en">ForwardConnectorSpecialized</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#IdentifierEntity -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#IdentifierEntity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#id"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#externalId"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#externalIdType"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A provenance structure that represents an external identifier</rdfs:comment>
+        <rdfs:label xml:lang="en">IdentifierEntity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#MainActivity -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#MainActivity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#mainActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleId"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.commonprovenancemodel.org/cpm#referencedMetaBundleSpecV"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A provenance structure that represents the described activity documented in a particular provenance component</rdfs:comment>
+        <rdfs:label xml:lang="en">MainActivity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#ReceiverAgent -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#ReceiverAgent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#receiverAgent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A provenance structure that represents a receiver in the context of passing a described object between two provenance controllers</rdfs:comment>
+        <rdfs:label xml:lang="en">ReceiverAgent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#SenderAgent -->
+
+
+    <owl:Class rdf:about="https://www.commonprovenancemodel.org/cpm#SenderAgent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#type"/>
+                <owl:hasValue rdf:resource="https://www.commonprovenancemodel.org/cpm#senderAgent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A provenance structure that represents a sender in the context of passing a described object between two provenance controllers</rdfs:comment>
+        <rdfs:label xml:lang="en">SenderAgent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#backwardConnector -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#backwardConnector">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing a backward connector.</rdfs:comment>
+        <rdfs:label xml:lang="en">Backward Connector Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#currentAgent -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#currentAgent">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing a current agent.</rdfs:comment>
+        <rdfs:label xml:lang="en">Current Agent Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#forwardConnector -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#forwardConnector">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing a forward connector.</rdfs:comment>
+        <rdfs:label xml:lang="en">Forward Connector Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#forwardConnectorSpec -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#forwardConnectorSpec">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing a forward connector specialized.</rdfs:comment>
+        <rdfs:label xml:lang="en">forwardConnectorSpec</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#id -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#id">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing an identifier entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">Identifier Entity Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#mainActivity -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#mainActivity">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing a main activity.</rdfs:comment>
+        <rdfs:label xml:lang="en">Main Activity Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#receiverAgent -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#receiverAgent">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing a receiver agent.</rdfs:comment>
+        <rdfs:label xml:lang="en">Receiver Agent Role</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.commonprovenancemodel.org/cpm#senderAgent -->
+
+
+    <owl:NamedIndividual rdf:about="https://www.commonprovenancemodel.org/cpm#senderAgent">
+        <rdf:type rdf:resource="https://www.commonprovenancemodel.org/cpm#CPMType"/>
+        <rdfs:comment xml:lang="en">CPM type value representing a sender agent.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sender Agent Role</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+
