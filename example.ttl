@@ -1,0 +1,112 @@
+@prefix cpm: <https://www.commonprovenancemodel.org/cpm#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/cpf-scenario/> .
+
+# =====================================================================
+# NODE 1: HOSPITAL - Primary Sample Sender
+# Demonstrates the initiation of the provenance chain.
+# =====================================================================
+
+# The originating agent (e.g., a hospital extracting the tissue)
+ex:HospitalAgent a cpm:SenderAgent ;
+    prov:type cpm:senderAgent ;
+    cpm:externalId "HOSP-001" ;
+    cpm:externalIdType "HospitalID" .
+
+# The forward connector representing the physical dispatch of the sample.
+# It contains the URI of the hospital's provenance service for future querying.
+ex:SampleForward1 a cpm:ForwardConnectorSpecialized ;
+    prov:type cpm:forwardConnectorSpec ;
+    cpm:describedObjectType "Primary Tissue Sample" ;
+    cpm:referencedBundleId <http://hospital.example.org/bundle/101> ;
+    cpm:referencedMetaBundleId <http://hospital.example.org/meta/101> ;
+    cpm:referencedBundleSpecV "1.0" ;
+    cpm:referencedMetaBundleSpecV "1.0" ;
+    cpm:hashAlg "SHA-256" ;
+    cpm:referencedBundleHashValue "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" ;
+    cpm:provenanceServiceUri <https://hospital.example.org/api/prov> .
+
+# =====================================================================
+# NODE 2: BIOBANK - Intermediary Node (Receiver, Processor, Sender)
+# Demonstrates receiving a sample, modifying it, and sending it further.
+# =====================================================================
+
+# The agent receiving the sample from the hospital
+ex:BiobankReceiver a cpm:ReceiverAgent ;
+    prov:type cpm:receiverAgent ;
+    cpm:externalId "BIOBANK-CZ" ;
+    cpm:externalIdType "BBMRI-ERIC-ID" .
+
+# The backward connector linking Node 2 to Node 1.
+# CRITICAL: The referencedBundleHashValue MUST match the hash provided by Node 1 to ensure a secure chain.
+ex:SampleBackward1 a cpm:BackwardConnector ;
+    prov:type cpm:backwardConnector ;
+    cpm:describedObjectType "Primary Tissue Sample" ;
+    cpm:referencedBundleId <http://biobank.example.org/bundle/recv-202> ;
+    cpm:referencedMetaBundleId <http://biobank.example.org/meta/recv-202> ;
+    cpm:referencedBundleSpecV "1.0" ;
+    cpm:referencedMetaBundleSpecV "1.0" ;
+    cpm:hashAlg "SHA-256" ;
+    cpm:referencedBundleHashValue "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" .
+
+# The main activity performed by the Biobank (e.g., creating a DNA aliquot)
+ex:AliquotingActivity a cpm:MainActivity ;
+    prov:type cpm:mainActivity ;
+    cpm:referencedMetaBundleId <http://biobank.example.org/meta/act-203> ;
+    cpm:referencedMetaBundleSpecV "1.0" ;
+    cpm:externalId "ALIQUOT-PROCESS-99" ;
+    cpm:externalIdType "SOP-ID" .
+
+# The Biobank now acts as a sender for the next hop in the chain
+ex:BiobankSender a cpm:SenderAgent ;
+    prov:type cpm:senderAgent ;
+    cpm:contactIdPid <mailto:data@biobank.example.org> .
+
+# The forward connector dispatching the newly created DNA aliquot to the lab
+ex:SampleForward2 a cpm:ForwardConnectorSpecialized ;
+    prov:type cpm:forwardConnectorSpec ;
+    cpm:describedObjectType "DNA Aliquot" ;
+    cpm:referencedBundleId <http://biobank.example.org/bundle/send-204> ;
+    cpm:referencedMetaBundleId <http://biobank.example.org/meta/send-204> ;
+    cpm:referencedBundleSpecV "1.0" ;
+    cpm:referencedMetaBundleSpecV "1.0" ;
+    cpm:hashAlg "SHA-256" ;
+    # A new hash is generated for the new dispatch bundle
+    cpm:referencedBundleHashValue "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92" ;
+    cpm:provenanceServiceUri <https://biobank.example.org/api/prov> .
+
+# =====================================================================
+# NODE 3: RESEARCH LAB - Final Destination
+# Demonstrates receiving the aliquot and producing final digital data.
+# =====================================================================
+
+# The agent receiving the aliquot from the Biobank
+ex:LabReceiver a cpm:ReceiverAgent ;
+    prov:type cpm:receiverAgent ;
+    cpm:externalId "LAB-BRNO" ;
+    cpm:externalIdType "LabID" .
+
+# The backward connector linking Node 3 to Node 2.
+# Matches the hash from SampleForward2.
+ex:SampleBackward2 a cpm:BackwardConnector ;
+    prov:type cpm:backwardConnector ;
+    cpm:describedObjectType "DNA Aliquot" ;
+    cpm:referencedBundleId <http://lab.example.org/bundle/305> ;
+    cpm:referencedMetaBundleId <http://lab.example.org/meta/305> ;
+    cpm:referencedBundleSpecV "1.0" ;
+    cpm:referencedMetaBundleSpecV "1.0" ;
+    cpm:hashAlg "SHA-256" ;
+    cpm:referencedBundleHashValue "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92" .
+
+# The final activity (e.g., genetic sequencing of the aliquot)
+ex:SequencingActivity a cpm:MainActivity ;
+    prov:type cpm:mainActivity ;
+    cpm:referencedMetaBundleId <http://lab.example.org/meta/act-306> ;
+    cpm:referencedMetaBundleSpecV "1.0" .
+
+# The resulting digital entity (Identifier Entity) representing the final dataset
+ex:SequenceDataId a cpm:IdentifierEntity ;
+    prov:type cpm:id ;
+    cpm:externalId "SEQ-DATA-XYZ-2026" ;
+    cpm:externalIdType "EGA-Dataset-ID" .
