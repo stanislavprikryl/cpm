@@ -122,8 +122,8 @@ cpm:BackwardConnectorShape a sh:NodeShape ;
 # --- Forward Connector ---
 
 cpm:ForwardConnectorShape a sh:NodeShape ;
-	rdfs:label "Shape for Forward Connector"@en ; # PŘIDÁNO
-    rdfs:comment "Strict validation shape for cpm:ForwardConnector."@en ; # PŘIDÁNO
+	rdfs:label "Shape for Forward Connector"@en ;
+    rdfs:comment "Strict validation shape for cpm:ForwardConnector."@en ;
     sh:targetClass cpm:ForwardConnector ;
     sh:closed true ;
     
@@ -210,7 +210,7 @@ cpm:ForwardConnectorSpecializedShape a sh:NodeShape ;
         sh:message "A specialized forward connector MUST have exactly one cpm:referencedMetaBundleSpecV attribute."@en ;
     ] ;
 
-    # cpm:provenanceServiceUri (Mandatory - Exactly one! Rozdíl oproti Backward)
+    # cpm:provenanceServiceUri (Mandatory - Exactly one!)
     sh:property [
         sh:path cpm:provenanceServiceUri ;
         sh:nodeKind sh:IRI ;
