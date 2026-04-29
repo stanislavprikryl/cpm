@@ -1,0 +1,161 @@
+@prefix cpm:  <https://www.commonprovenancemodel.org/cpm#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex:   <http://example.org/cpf-scenario/> .
+
+# =====================================================================
+# Multi-organizational provenance demonstration scenario: a biological
+# sample passing through Hospital, Biobank, and Research Lab.
+# Each Finalized Provenance Component (FPC) is encapsulated in its own
+# named graph (prov:Bundle).
+# =====================================================================
+
+# ============== FPC 1: HOSPITAL — Sample acquisition ==============
+ex:HospitalBundle {
+    ex:HospitalBundle a prov:Bundle ;
+        rdfs:label "FPC: Sample acquisition at Primary Hospital"@en .
+
+    ex:HospitalCurrent a cpm:CurrentAgent ;
+        prov:type cpm:currentAgent ;
+        cpm:externalId "HOSP-001" ;
+        cpm:externalIdType "HospitalID" ;
+        cpm:contactIdPid <mailto:provenance@hospital.example.org> .
+
+    ex:BiopsyActivity a cpm:MainActivity ;
+        prov:type cpm:mainActivity ;
+        prov:wasAssociatedWith ex:HospitalCurrent ;
+        cpm:referencedMetaBundleId <http://hospital.example.org/meta/101> ;
+        cpm:referencedMetaBundleSpecV "1.0" ;
+        cpm:externalId "BIOPSY-PROC-A" ;
+        cpm:externalIdType "SOP-ID" .
+
+    # Forward connector — start of chain, no backward connector
+    ex:TissueSample a cpm:ForwardConnector ;
+        prov:type cpm:forwardConnector ;
+        prov:wasGeneratedBy ex:BiopsyActivity ;
+        cpm:describedObjectType "Primary Tissue Sample" .
+
+    # Specialized FC (receiver known) — note dual prov:type per OWL semantics
+    ex:TissueSampleSpec a cpm:ForwardConnectorSpecialized ;
+        prov:type cpm:forwardConnector, cpm:forwardConnectorSpec ;
+        prov:specializationOf ex:TissueSample ;
+        prov:wasGeneratedBy ex:BiopsyActivity ;
+        cpm:describedObjectType "Primary Tissue Sample" ;
+        cpm:referencedBundleId <http://biobank.example.org/bundle/recv-202> ;
+        cpm:referencedMetaBundleId <http://biobank.example.org/meta/recv-202> ;
+        cpm:referencedBundleSpecV "1.0" ;
+        cpm:referencedMetaBundleSpecV "1.0" ;
+        cpm:hashAlg "SHA-256" ;
+        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_BIOBANK_BUNDLE_RECV_202" ;
+        cpm:provenanceServiceUri <https://biobank.example.org/api/prov> .
+}
+
+# ============== FPC 2: BIOBANK — Receive + Aliquot + Send ==============
+ex:BiobankBundle {
+    ex:BiobankBundle a prov:Bundle ;
+        rdfs:label "FPC: Aliquot preparation at Regional Biobank"@en .
+
+    ex:BiobankCurrent a cpm:CurrentAgent ;
+        prov:type cpm:currentAgent ;
+        cpm:externalId "BIOBANK-CZ" ;
+        cpm:externalIdType "BBMRI-ERIC-ID" .
+
+    ex:HospitalSenderAtBiobank a cpm:SenderAgent ;
+        prov:type cpm:senderAgent ;
+        cpm:externalId "HOSP-001" ;
+        cpm:externalIdType "HospitalID" .
+
+    ex:LabReceiverAtBiobank a cpm:ReceiverAgent ;
+        prov:type cpm:receiverAgent ;
+        cpm:externalId "LAB-BRNO" ;
+        cpm:externalIdType "LabID" .
+
+    # Backward connector — same PROV entity URI as Hospital's FC
+    # (CPF Supplementary §1.2 line 104-106). In TriG, this works because
+    # statements are scoped to the named graph.
+    ex:TissueSample a cpm:BackwardConnector ;
+        prov:type cpm:backwardConnector ;
+        cpm:describedObjectType "Primary Tissue Sample" ;
+        cpm:referencedBundleId <http://hospital.example.org/bundle/101> ;
+        cpm:referencedMetaBundleId <http://hospital.example.org/meta/101> ;
+        cpm:referencedBundleSpecV "1.0" ;
+        cpm:referencedMetaBundleSpecV "1.0" ;
+        cpm:hashAlg "SHA-256" ;
+        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_HOSPITAL_BUNDLE_101" ;
+        cpm:provenanceServiceUri <https://hospital.example.org/api/prov> .
+
+    ex:AliquotingActivity a cpm:MainActivity ;
+        prov:type cpm:mainActivity ;
+        prov:wasAssociatedWith ex:BiobankCurrent ;
+        prov:used ex:TissueSample ;
+        cpm:referencedMetaBundleId <http://biobank.example.org/meta/act-203> ;
+        cpm:referencedMetaBundleSpecV "1.0" ;
+        cpm:externalId "ALIQUOT-PROCESS-99" ;
+        cpm:externalIdType "SOP-ID" .
+
+    ex:DnaAliquot a cpm:ForwardConnector ;
+        prov:type cpm:forwardConnector ;
+        prov:wasGeneratedBy ex:AliquotingActivity ;
+        prov:wasDerivedFrom ex:TissueSample ;
+        cpm:describedObjectType "DNA Aliquot" .
+
+    ex:DnaAliquotSpec a cpm:ForwardConnectorSpecialized ;
+        prov:type cpm:forwardConnector, cpm:forwardConnectorSpec ;
+        prov:specializationOf ex:DnaAliquot ;
+        prov:wasGeneratedBy ex:AliquotingActivity ;
+        prov:wasDerivedFrom ex:TissueSample ;
+        cpm:describedObjectType "DNA Aliquot" ;
+        cpm:referencedBundleId <http://lab.example.org/bundle/305> ;
+        cpm:referencedMetaBundleId <http://lab.example.org/meta/305> ;
+        cpm:referencedBundleSpecV "1.0" ;
+        cpm:referencedMetaBundleSpecV "1.0" ;
+        cpm:hashAlg "SHA-256" ;
+        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_LAB_BUNDLE_305" ;
+        cpm:provenanceServiceUri <https://lab.example.org/api/prov> .
+}
+
+# ============== FPC 3: LAB — Sequencing (terminal) ==============
+ex:LabBundle {
+    ex:LabBundle a prov:Bundle ;
+        rdfs:label "FPC: Genetic sequencing at Research Laboratory"@en .
+
+    ex:LabCurrent a cpm:CurrentAgent ;
+        prov:type cpm:currentAgent ;
+        cpm:externalId "LAB-BRNO" ;
+        cpm:externalIdType "LabID" .
+
+    ex:BiobankSenderAtLab a cpm:SenderAgent ;
+        prov:type cpm:senderAgent ;
+        cpm:externalId "BIOBANK-CZ" ;
+        cpm:externalIdType "BBMRI-ERIC-ID" .
+
+    ex:DnaAliquot a cpm:BackwardConnector ;
+        prov:type cpm:backwardConnector ;
+        cpm:describedObjectType "DNA Aliquot" ;
+        cpm:referencedBundleId <http://biobank.example.org/bundle/send-204> ;
+        cpm:referencedMetaBundleId <http://biobank.example.org/meta/send-204> ;
+        cpm:referencedBundleSpecV "1.0" ;
+        cpm:referencedMetaBundleSpecV "1.0" ;
+        cpm:hashAlg "SHA-256" ;
+        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_BIOBANK_BUNDLE_SEND_204" ;
+        cpm:provenanceServiceUri <https://biobank.example.org/api/prov> .
+
+    ex:SequencingActivity a cpm:MainActivity ;
+        prov:type cpm:mainActivity ;
+        prov:wasAssociatedWith ex:LabCurrent ;
+        prov:used ex:DnaAliquot ;
+        cpm:referencedMetaBundleId <http://lab.example.org/meta/act-306> ;
+        cpm:referencedMetaBundleSpecV "1.0" .
+
+    ex:SequenceData a cpm:ForwardConnector ;
+        prov:type cpm:forwardConnector ;
+        prov:wasGeneratedBy ex:SequencingActivity ;
+        prov:wasDerivedFrom ex:DnaAliquot ;
+        cpm:describedObjectType "Genomic Sequence Data" .
+
+    ex:SequenceDataId a cpm:IdentifierEntity ;
+        prov:type cpm:id ;
+        cpm:externalId "SEQ-DATA-XYZ-2026" ;
+        cpm:externalIdType "EGA-Dataset-ID" .
+}

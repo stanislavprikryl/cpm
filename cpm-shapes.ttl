@@ -1,18 +1,18 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix cpm: <https://www.commonprovenancemodel.org/cpm#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix cpm:  <https://www.commonprovenancemodel.org/cpm#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 
-# --- SHACL SHAPES FOR COMMON PROVENANCE MODEL ---
-
-# --- Base template for all described objects (prov:Entity) ---
+# =====================================================================
+# Base shape for all described objects (prov:Entity)
+# =====================================================================
 
 cpm:ProvEntityBaseShape a sh:NodeShape ;
     rdfs:label "Base Shape for PROV Entities"@en ;
     rdfs:comment "Defines validation rules for optional attributes belonging to prov:Entity (described objects)."@en ;
-    
+
     sh:property [ sh:path cpm:hasId ; sh:datatype xsd:boolean ; sh:maxCount 1 ] ;
     sh:property [ sh:path cpm:describedObjectType ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
     sh:property [ sh:path cpm:hashValue ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
@@ -20,36 +20,42 @@ cpm:ProvEntityBaseShape a sh:NodeShape ;
     sh:property [ sh:path cpm:externalId ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
     sh:property [ sh:path cpm:externalIdType ; sh:datatype xsd:string ; sh:maxCount 1 ] .
 
-# --- Base template for all agents (prov:Agent) ---
+# =====================================================================
+# Base shape for all agents (prov:Agent)
+# =====================================================================
 
 cpm:ProvAgentBaseShape a sh:NodeShape ;
     rdfs:label "Base Shape for PROV Agents"@en ;
     rdfs:comment "Defines validation rules for mandatory identity structures belonging to prov:Agent."@en ;
-    
-    sh:property [ sh:path cpm:externalId ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:message "A CPF Agent MUST have exactly one cpm:externalId to ensure deterministic identification."@en ;] ;
-    sh:property [ sh:path cpm:externalIdType ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ; sh:message "A CPF Agent MUST specify exactly one cpm:externalIdType to provide context for the externalId."@en ;] ;
+
+    sh:property [ sh:path cpm:externalId ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "A CPF Agent MUST have exactly one cpm:externalId to ensure deterministic identification."@en ] ;
+    sh:property [ sh:path cpm:externalIdType ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "A CPF Agent MUST specify exactly one cpm:externalIdType to provide context for the externalId."@en ] ;
     sh:property [ sh:path cpm:contactIdPid ; sh:nodeKind sh:IRI ; sh:maxCount 1 ] .
 
-# --- Backward Connector ---
+# =====================================================================
+# Backward Connector
+# Justified by: CPF Supplementary §1.2 (Figures 4, 6, 7)
+# =====================================================================
 
 cpm:BackwardConnectorShape a sh:NodeShape ;
     rdfs:label "Shape for Backward Connector"@en ;
-    rdfs:comment "Strict validation shape for cpm:BackwardConnector."@en ;
+    rdfs:comment "Strict validation shape for cpm:BackwardConnector (per CPF Supplementary §1.2)."@en ;
     sh:targetClass cpm:BackwardConnector ;
     sh:closed true ;
 
-	sh:ignoredProperties ( 
-        rdf:type 
-        cpm:hasId 
-        cpm:describedObjectType 
-		cpm:hashValue
-        cpm:externalId 
-        cpm:externalIdType 
+    sh:ignoredProperties (
+        rdf:type
+        cpm:hasId
+        cpm:describedObjectType
+        cpm:hashValue
+        cpm:externalId
+        cpm:externalIdType
     ) ;
 
     sh:node cpm:ProvEntityBaseShape ;
 
-    # prov:type (Mandatory - At least one must be cpm:backwardConnector)
     sh:property [
         sh:path prov:type ;
         sh:hasValue cpm:backwardConnector ;
@@ -57,348 +63,336 @@ cpm:BackwardConnectorShape a sh:NodeShape ;
         sh:message "A backward connector MUST have at least one prov:type attribute set to cpm:backwardConnector."@en ;
     ] ;
 
-    # cpm:referencedBundleId (Mandatory - Exactly one)
     sh:property [
         sh:path cpm:referencedBundleId ;
         sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
         sh:message "A backward connector MUST have exactly one cpm:referencedBundleId attribute of type IRI."@en ;
     ] ;
 
-    # cpm:referencedMetaBundleId (Mandatory - Exactly one)
     sh:property [
         sh:path cpm:referencedMetaBundleId ;
         sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
         sh:message "A backward connector MUST have exactly one cpm:referencedMetaBundleId attribute of type IRI."@en ;
     ] ;
 
-    # cpm:referencedBundleSpecV (Mandatory - Exactly one)
     sh:property [
         sh:path cpm:referencedBundleSpecV ;
         sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
         sh:message "A backward connector MUST have exactly one cpm:referencedBundleSpecV attribute."@en ;
     ] ;
 
-    # cpm:referencedMetaBundleSpecV (Mandatory - Exactly one)
     sh:property [
         sh:path cpm:referencedMetaBundleSpecV ;
         sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
         sh:message "A backward connector MUST have exactly one cpm:referencedMetaBundleSpecV attribute."@en ;
     ] ;
 
-    # cpm:referencedBundleHashValue (Mandatory - Exactly one)
     sh:property [
         sh:path cpm:referencedBundleHashValue ;
         sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
         sh:message "A backward connector MUST have exactly one cpm:referencedBundleHashValue attribute."@en ;
     ] ;
 
-    # cpm:hashAlg (Mandatory - Exactly one)
     sh:property [
         sh:path cpm:hashAlg ;
         sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
         sh:message "A backward connector MUST have exactly one cpm:hashAlg attribute."@en ;
     ] ;
 
-    # cpm:provenanceServiceUri (Optional - At most one)
     sh:property [
         sh:path cpm:provenanceServiceUri ;
         sh:nodeKind sh:IRI ;
         sh:maxCount 1 ;
         sh:message "A backward connector MAY have at most one cpm:provenanceServiceUri attribute of type IRI."@en ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Optional: backward connector MAY be derived from another connector (redundant connector pattern, CPF Supplementary §1.2.2 Figure 6)."@en ;
     ] .
 
-# --- Forward Connector ---
+# =====================================================================
+# Forward Connector
+# Justified by: CPF Supplementary §1.2 (Figures 4, 5)
+# =====================================================================
 
 cpm:ForwardConnectorShape a sh:NodeShape ;
-	rdfs:label "Shape for Forward Connector"@en ;
-    rdfs:comment "Strict validation shape for cpm:ForwardConnector."@en ;
+    rdfs:label "Shape for Forward Connector"@en ;
+    rdfs:comment "Strict validation shape for cpm:ForwardConnector (per CPF Supplementary §1.2)."@en ;
     sh:targetClass cpm:ForwardConnector ;
     sh:closed true ;
-    
-    sh:ignoredProperties ( 
-        rdf:type 
-        cpm:hasId 
-        cpm:describedObjectType 
-        cpm:hashValue 
-        cpm:hashAlg 
-        cpm:externalId 
-        cpm:externalIdType 
+
+    sh:ignoredProperties (
+        rdf:type
+        cpm:hasId
+        cpm:describedObjectType
+        cpm:hashValue
+        cpm:hashAlg
+        cpm:externalId
+        cpm:externalIdType
+        cpm:referencedBundleId
+        cpm:referencedMetaBundleId
+        cpm:referencedBundleSpecV
+        cpm:referencedMetaBundleSpecV
+        cpm:referencedBundleHashValue
+        cpm:provenanceServiceUri
     ) ;
 
     sh:node cpm:ProvEntityBaseShape ;
 
-    # prov:type (Mandatory - At least one must be cpm:forwardConnector)
     sh:property [
         sh:path prov:type ;
         sh:hasValue cpm:forwardConnector ;
         sh:minCount 1 ;
         sh:message "A forward connector MUST have at least one prov:type attribute set to cpm:forwardConnector."@en ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "A forward connector MUST be generated by a main activity (CPF Supplementary §1.2)."@en ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Optional: forward connector MAY be derived from a backward connector (within-FPC lineage)."@en ;
+    ] ;
+
+    sh:property [
+        sh:path prov:specializationOf ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Optional on plain forward connector; required on ForwardConnectorSpecialized."@en ;
     ] .
 
-# --- Forward Connector Specialized ---
+# =====================================================================
+# Forward Connector Specialized
+# Justified by: CPF Supplementary §1.2 (Figure 5)
+# =====================================================================
 
 cpm:ForwardConnectorSpecializedShape a sh:NodeShape ;
     rdfs:label "Shape for Forward Connector Specialized"@en ;
-    rdfs:comment "Strict validation shape for cpm:ForwardConnectorSpecialized."@en ;
+    rdfs:comment "Strict validation shape for cpm:ForwardConnectorSpecialized (per CPF Supplementary §1.2 Figure 5)."@en ;
     sh:targetClass cpm:ForwardConnectorSpecialized ;
     sh:closed true ;
 
-    sh:ignoredProperties ( 
-        rdf:type 
-        cpm:hasId 
-        cpm:describedObjectType 
-        cpm:hashValue 
-        cpm:externalId 
-        cpm:externalIdType 
+    sh:ignoredProperties (
+        rdf:type
+        cpm:hasId
+        cpm:describedObjectType
+        cpm:hashValue
+        cpm:externalId
+        cpm:externalIdType
     ) ;
 
     sh:node cpm:ProvEntityBaseShape ;
 
-    # prov:type (Mandatory - At least one must be cpm:forwardConnectorSpec)
+    sh:property [
+        sh:path prov:type ;
+        sh:hasValue cpm:forwardConnector ;
+        sh:minCount 1 ;
+        sh:message "A specialized forward connector MUST also carry prov:type cpm:forwardConnector (inherited from FC)."@en ;
+    ] ;
     sh:property [
         sh:path prov:type ;
         sh:hasValue cpm:forwardConnectorSpec ;
         sh:minCount 1 ;
-        sh:message "A specialized forward connector MUST have at least one prov:type attribute set to cpm:forwardConnectorSpec."@en ;
+        sh:message "A specialized forward connector MUST have prov:type cpm:forwardConnectorSpec."@en ;
     ] ;
 
-    # cpm:referencedBundleId (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:referencedBundleId ;
+        sh:path prov:specializationOf ;
         sh:nodeKind sh:IRI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A specialized forward connector MUST have exactly one cpm:referencedBundleId attribute of type IRI."@en ;
+        sh:message "A specialized forward connector MUST be a prov:specializationOf an existing forward connector (CPF Supplementary §1.2 Figure 5)."@en ;
     ] ;
 
-    # cpm:referencedMetaBundleId (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:referencedMetaBundleId ;
+        sh:path prov:wasGeneratedBy ;
         sh:nodeKind sh:IRI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A specialized forward connector MUST have exactly one cpm:referencedMetaBundleId attribute of type IRI."@en ;
+        sh:message "A specialized forward connector MUST be generated by a main activity."@en ;
     ] ;
 
-    # cpm:referencedBundleSpecV (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:referencedBundleSpecV ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A specialized forward connector MUST have exactly one cpm:referencedBundleSpecV attribute."@en ;
-    ] ;
-
-    # cpm:referencedMetaBundleSpecV (Mandatory - Exactly one)
-    sh:property [
-        sh:path cpm:referencedMetaBundleSpecV ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A specialized forward connector MUST have exactly one cpm:referencedMetaBundleSpecV attribute."@en ;
-    ] ;
-
-    # cpm:provenanceServiceUri (Mandatory - Exactly one!)
-    sh:property [
-        sh:path cpm:provenanceServiceUri ;
+        sh:path prov:wasDerivedFrom ;
         sh:nodeKind sh:IRI ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A specialized forward connector MUST have exactly one cpm:provenanceServiceUri attribute of type IRI."@en ;
+        sh:message "Optional: FCS MAY be derived from a backward connector."@en ;
     ] ;
 
-    # cpm:hashAlg (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:hashAlg ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A specialized forward connector MUST have exactly one cpm:hashAlg attribute."@en ;
+        sh:path cpm:referencedBundleId ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "FCS MUST have exactly one cpm:referencedBundleId."@en ;
     ] ;
-
-    # cpm:referencedBundleHashValue (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:referencedBundleHashValue ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A specialized forward connector MUST have exactly one cpm:referencedBundleHashValue attribute."@en ;
+        sh:path cpm:referencedMetaBundleId ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "FCS MUST have exactly one cpm:referencedMetaBundleId."@en ;
+    ] ;
+    sh:property [
+        sh:path cpm:referencedBundleSpecV ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cpm:referencedMetaBundleSpecV ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cpm:provenanceServiceUri ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "FCS MUST have exactly one cpm:provenanceServiceUri (mandatory, unlike on backward connector)."@en ;
+    ] ;
+    sh:property [
+        sh:path cpm:hashAlg ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cpm:referencedBundleHashValue ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
     ] .
 
-# --- Identifier Entity ---
+# =====================================================================
+# Identifier Entity
+# Justified by: CPF Supplementary §1.1 (Figure 1)
+# =====================================================================
 
 cpm:IdentifierEntityShape a sh:NodeShape ;
     rdfs:label "Shape for Identifier Entity"@en ;
-    rdfs:comment "Strict validation shape for cpm:IdentifierEntity. Enforces mandatory external ID properties."@en ;
     sh:targetClass cpm:IdentifierEntity ;
-	sh:closed true ;
+    sh:closed true ;
 
-    sh:ignoredProperties ( 
-        rdf:type 
-        cpm:hasId 
-        cpm:describedObjectType 
-        cpm:hashValue 
-        cpm:hashAlg 
+    sh:ignoredProperties (
+        rdf:type
+        cpm:hasId
+        cpm:describedObjectType
+        cpm:hashValue
+        cpm:hashAlg
     ) ;
 
     sh:node cpm:ProvEntityBaseShape ;
 
-    # prov:type (Mandatory - At least one must be cpm:id)
     sh:property [
-        sh:path prov:type ;
-        sh:hasValue cpm:id ;
-        sh:minCount 1 ;
-        sh:message "An identifier entity MUST have at least one prov:type attribute set to cpm:id."@en ;
+        sh:path prov:type ; sh:hasValue cpm:id ; sh:minCount 1 ;
+        sh:message "An identifier entity MUST have prov:type cpm:id."@en ;
     ] ;
-
-    # cpm:externalId (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:externalId ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "An identifier entity MUST have exactly one cpm:externalId attribute."@en ;
+        sh:path cpm:externalId ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
     ] ;
-
-    # cpm:externalIdType (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:externalIdType ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "An identifier entity MUST have exactly one cpm:externalIdType attribute."@en ;
+        sh:path cpm:externalIdType ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path prov:alternateOf ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Optional: identifier entity MAY be prov:alternateOf the described object."@en ;
     ] .
 
-# --- Main Activity ---
+# =====================================================================
+# Main Activity
+# Justified by: CPF Supplementary §1.2 (exactly one per FPC; generates
+# at least one forward connector; uses backward connectors when present)
+# =====================================================================
 
 cpm:MainActivityShape a sh:NodeShape ;
     rdfs:label "Shape for Main Activity"@en ;
-    rdfs:comment "Strict validation shape for cpm:MainActivity. Enforces mandatory meta-bundle references and allows optional activity identifiers."@en ;
     sh:targetClass cpm:MainActivity ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
 
-    # prov:type (Mandatory)
     sh:property [
-        sh:path prov:type ;
-        sh:hasValue cpm:mainActivity ;
-        sh:minCount 1 ;
-        sh:message "A main activity MUST have at least one prov:type attribute set to cpm:mainActivity."@en ;
+        sh:path prov:type ; sh:hasValue cpm:mainActivity ; sh:minCount 1 ;
+        sh:message "A main activity MUST have prov:type cpm:mainActivity."@en ;
+    ] ;
+    sh:property [
+        sh:path cpm:referencedMetaBundleId ; sh:nodeKind sh:IRI ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "A main activity MUST have exactly one cpm:referencedMetaBundleId."@en ;
+    ] ;
+    sh:property [
+        sh:path cpm:referencedMetaBundleSpecV ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cpm:externalId ; sh:datatype xsd:string ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cpm:externalIdType ; sh:datatype xsd:string ; sh:maxCount 1 ;
     ] ;
 
-    # cpm:referencedMetaBundleId (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:referencedMetaBundleId ;
+        sh:path prov:wasAssociatedWith ;
         sh:nodeKind sh:IRI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A main activity MUST have exactly one cpm:referencedMetaBundleId attribute of type IRI."@en ;
+        sh:message "A main activity MUST be associated with at least one prov:Agent (CPF Supplementary §1.2 Figures 4-7)."@en ;
     ] ;
-
-    # cpm:referencedMetaBundleSpecV (Mandatory - Exactly one)
     sh:property [
-        sh:path cpm:referencedMetaBundleSpecV ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:message "A main activity MUST have exactly one cpm:referencedMetaBundleSpecV attribute."@en ;
-    ] ;
-    
-    sh:property [
-        sh:path cpm:externalId ;
-        sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-    ] ;
-    
-    sh:property [
-        sh:path cpm:externalIdType ;
-        sh:datatype xsd:string ;
-        sh:maxCount 1 ;
+        sh:path prov:used ;
+        sh:nodeKind sh:IRI ;
+        sh:message "A main activity MAY use backward connectors. Absence indicates the start of a chain (CPF Supplementary §1.2 line 110-112)."@en ;
     ] .
 
-# --- Sender Agent ---
+# =====================================================================
+# Sender Agent
+# =====================================================================
 
 cpm:SenderAgentShape a sh:NodeShape ;
-    rdfs:label "Shape for Sender Agent"@en ;
-    rdfs:comment "Strict validation shape for cpm:SenderAgent."@en ;
     sh:targetClass cpm:SenderAgent ;
-	sh:closed true ;
-    
-    sh:ignoredProperties ( 
-        rdf:type 
-        cpm:externalId 
-        cpm:externalIdType 
-        cpm:contactIdPid 
+    sh:closed true ;
+
+    sh:ignoredProperties (
+        rdf:type
+        cpm:externalId
+        cpm:externalIdType
+        cpm:contactIdPid
     ) ;
 
     sh:node cpm:ProvAgentBaseShape ;
 
-    # prov:type (Mandatory)
     sh:property [
-        sh:path prov:type ;
-        sh:hasValue cpm:senderAgent ;
-        sh:minCount 1 ;
-        sh:message "A sender agent MUST have at least one prov:type attribute set to cpm:senderAgent."@en ;
+        sh:path prov:type ; sh:hasValue cpm:senderAgent ; sh:minCount 1 ;
+        sh:message "A sender agent MUST have prov:type cpm:senderAgent."@en ;
     ] .
 
-# --- Receiver Agent ---
+# =====================================================================
+# Receiver Agent
+# =====================================================================
 
 cpm:ReceiverAgentShape a sh:NodeShape ;
-    rdfs:label "Shape for Receiver Agent"@en ;
-    rdfs:comment "Strict validation shape for cpm:ReceiverAgent."@en ;
     sh:targetClass cpm:ReceiverAgent ;
     sh:closed true ;
 
-    sh:ignoredProperties ( 
-        rdf:type 
-        cpm:externalId 
-        cpm:externalIdType 
-        cpm:contactIdPid 
+    sh:ignoredProperties (
+        rdf:type
+        cpm:externalId
+        cpm:externalIdType
+        cpm:contactIdPid
     ) ;
 
     sh:node cpm:ProvAgentBaseShape ;
 
-    # prov:type (Mandatory)
     sh:property [
-        sh:path prov:type ;
-        sh:hasValue cpm:receiverAgent ;
-        sh:minCount 1 ;
-        sh:message "A receiver agent MUST have at least one prov:type attribute set to cpm:receiverAgent."@en ;
+        sh:path prov:type ; sh:hasValue cpm:receiverAgent ; sh:minCount 1 ;
+        sh:message "A receiver agent MUST have prov:type cpm:receiverAgent."@en ;
     ] .
 
-# --- Current Agent ---
+# =====================================================================
+# Current Agent
+# =====================================================================
 
 cpm:CurrentAgentShape a sh:NodeShape ;
-    rdfs:label "Shape for Current Agent"@en ;
-    rdfs:comment "Strict validation shape for cpm:CurrentAgent."@en ;
     sh:targetClass cpm:CurrentAgent ;
     sh:closed true ;
 
-    sh:ignoredProperties ( 
-        rdf:type 
-        cpm:externalId 
-        cpm:externalIdType 
-        cpm:contactIdPid 
+    sh:ignoredProperties (
+        rdf:type
+        cpm:externalId
+        cpm:externalIdType
+        cpm:contactIdPid
     ) ;
 
     sh:node cpm:ProvAgentBaseShape ;
 
-    # prov:type (Mandatory)
     sh:property [
-        sh:path prov:type ;
-        sh:hasValue cpm:currentAgent ;
-        sh:minCount 1 ;
-        sh:message "A current agent MUST have at least one prov:type attribute set to cpm:currentAgent."@en ;
+        sh:path prov:type ; sh:hasValue cpm:currentAgent ; sh:minCount 1 ;
+        sh:message "A current agent MUST have prov:type cpm:currentAgent."@en ;
     ] .
