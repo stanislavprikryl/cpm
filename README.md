@@ -41,10 +41,12 @@ Expected output:
 
 ```bash
 === Per-bundle SHACL validation of CPM-conformant FPCs ===
-Bundle http://example.org/cpf-scenario/HospitalBundle: 31 triples — PASS ✓
-Bundle http://example.org/cpf-scenario/BiobankBundle: 51 triples — PASS ✓
-Bundle http://example.org/cpf-scenario/LabBundle: 35 triples — PASS ✓
-=== OVERALL: PASS ✓ ===
+
+Bundle <http://example.org/cpf-scenario/LabBundle>: 37 triples -- PASS
+Bundle <http://example.org/cpf-scenario/HospitalBundle>: 31 triples -- PASS
+Bundle <http://example.org/cpf-scenario/BiobankBundle>: 51 triples -- PASS
+
+=== OVERALL: PASS ===
 
 ```
 
