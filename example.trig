@@ -47,7 +47,7 @@ ex:HospitalBundle {
         cpm:referencedBundleSpecV "1.0" ;
         cpm:referencedMetaBundleSpecV "1.0" ;
         cpm:hashAlg "SHA-256" ;
-        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_BIOBANK_BUNDLE_RECV_202" ;
+        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_BIOBANK_BUNDLE_202" ;
         cpm:provenanceServiceUri <https://biobank.example.org/api/prov> .
 }
 
@@ -138,7 +138,7 @@ ex:LabBundle {
         cpm:referencedBundleSpecV "1.0" ;
         cpm:referencedMetaBundleSpecV "1.0" ;
         cpm:hashAlg "SHA-256" ;
-        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_BIOBANK_BUNDLE_SEND_204" ;
+        cpm:referencedBundleHashValue "PLACEHOLDER_HASH_BIOBANK_BUNDLE_202" ;
         cpm:provenanceServiceUri <https://biobank.example.org/api/prov> .
 
     ex:SequencingActivity a cpm:MainActivity ;
