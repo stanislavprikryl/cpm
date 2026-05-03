@@ -42,8 +42,8 @@ ex:HospitalBundle {
         prov:specializationOf ex:TissueSample ;
         prov:wasGeneratedBy ex:BiopsyActivity ;
         cpm:describedObjectType "Primary Tissue Sample" ;
-        cpm:referencedBundleId <http://biobank.example.org/bundle/recv-202> ;
-        cpm:referencedMetaBundleId <http://biobank.example.org/meta/recv-202> ;
+        cpm:referencedBundleId <http://biobank.example.org/bundle/202> ;
+        cpm:referencedMetaBundleId <http://biobank.example.org/meta/202> ;
         cpm:referencedBundleSpecV "1.0" ;
         cpm:referencedMetaBundleSpecV "1.0" ;
         cpm:hashAlg "SHA-256" ;
@@ -133,8 +133,8 @@ ex:LabBundle {
     ex:DnaAliquot a cpm:BackwardConnector ;
         prov:type cpm:backwardConnector ;
         cpm:describedObjectType "DNA Aliquot" ;
-        cpm:referencedBundleId <http://biobank.example.org/bundle/send-204> ;
-        cpm:referencedMetaBundleId <http://biobank.example.org/meta/send-204> ;
+        cpm:referencedBundleId <http://biobank.example.org/bundle/202> ;
+        cpm:referencedMetaBundleId <http://biobank.example.org/meta/202> ;
         cpm:referencedBundleSpecV "1.0" ;
         cpm:referencedMetaBundleSpecV "1.0" ;
         cpm:hashAlg "SHA-256" ;
@@ -152,10 +152,12 @@ ex:LabBundle {
         prov:type cpm:forwardConnector ;
         prov:wasGeneratedBy ex:SequencingActivity ;
         prov:wasDerivedFrom ex:DnaAliquot ;
-        cpm:describedObjectType "Genomic Sequence Data" .
+        cpm:describedObjectType "Genomic Sequence Data" ;
+        cpm:hasId true .
 
     ex:SequenceDataId a cpm:IdentifierEntity ;
         prov:type cpm:id ;
         cpm:externalId "SEQ-DATA-XYZ-2026" ;
-        cpm:externalIdType "EGA-Dataset-ID" .
+        cpm:externalIdType "EGA-Dataset-ID" ;
+        prov:alternateOf ex:SequenceData .
 }
