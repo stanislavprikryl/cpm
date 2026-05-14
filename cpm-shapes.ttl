@@ -26,12 +26,10 @@ cpm:ProvEntityBaseShape a sh:NodeShape ;
 
 cpm:ProvAgentBaseShape a sh:NodeShape ;
     rdfs:label "Base Shape for PROV Agents"@en ;
-    rdfs:comment "Defines validation rules for mandatory identity structures belonging to prov:Agent."@en ;
+    rdfs:comment "Defines validation rules for optional identity attributes belonging to prov:Agent."@en ;
 
-    sh:property [ sh:path cpm:externalId ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
-        sh:message "A CPF Agent MUST have exactly one cpm:externalId to ensure deterministic identification."@en ] ;
-    sh:property [ sh:path cpm:externalIdType ; sh:datatype xsd:string ; sh:minCount 1 ; sh:maxCount 1 ;
-        sh:message "A CPF Agent MUST specify exactly one cpm:externalIdType to provide context for the externalId."@en ] ;
+    sh:property [ sh:path cpm:externalId ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
+    sh:property [ sh:path cpm:externalIdType ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
     sh:property [ sh:path cpm:contactIdPid ; sh:nodeKind sh:IRI ; sh:maxCount 1 ] .
 
 # =====================================================================
