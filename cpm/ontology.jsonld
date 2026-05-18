@@ -410,7 +410,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
   "http://purl.org/dc/terms/abstract" : [ {
     "@language" : "en",
-    "@value" : "The Common Provenance Model (CPM) ontology provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments."
+    "@value" : "The Common Provenance Model Ontology (CPM-O) provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments."
   } ],
   "http://purl.org/dc/terms/contributor" : [ {
     "@value" : "RNDr. Rudolf Wittner"
@@ -435,11 +435,11 @@
     "@value" : "2026-03-17"
   } ],
   "http://purl.org/dc/terms/source" : [ {
-    "@id" : "https://doi.org/10.5281/zenodo.18063102"
+    "@id" : "https://doi.org/10.5281/zenodo.19889324"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
-    "@value" : "Common Provenance Model (CPM) Ontology"
+    "@value" : "Common Provenance Model Ontology (CPM-O)"
   } ],
   "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
     "@value" : "cpm"

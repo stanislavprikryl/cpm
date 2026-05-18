@@ -8,15 +8,15 @@
 
 <https://www.commonprovenancemodel.org/cpm#> rdf:type owl:Ontology ;
                                               owl:versionIRI <https://www.commonprovenancemodel.org/cpm/1.0.0/cpm.ttl> ;
-                                              <http://purl.org/dc/terms/abstract> "The Common Provenance Model (CPM) ontology provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments."@en ;
+                                              <http://purl.org/dc/terms/abstract> "The Common Provenance Model Ontology (CPM-O) provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments."@en ;
                                               <http://purl.org/dc/terms/contributor> "RNDr. Rudolf Wittner" ;
                                               <http://purl.org/dc/terms/created> "2026-02-05"^^xsd:date ;
                                               <http://purl.org/dc/terms/creator> "Bc. Stanislav Přikryl"@en ;
                                               <http://purl.org/dc/terms/description> "The normative OWL 2 ontology representing the Common Provenance Model (CPM). It is designed to support the traceability of samples and data in multi-organizational environments, as defined by the Common Provenance Framework (CPF)."@en ;
                                               <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> ;
                                               <http://purl.org/dc/terms/modified> "2026-03-17"^^xsd:date ;
-                                              <http://purl.org/dc/terms/source> <https://doi.org/10.5281/zenodo.18063102> ;
-                                              <http://purl.org/dc/terms/title> "Common Provenance Model (CPM) Ontology"@en ;
+                                              <http://purl.org/dc/terms/source> <https://doi.org/10.5281/zenodo.19889324> ;
+                                              <http://purl.org/dc/terms/title> "Common Provenance Model Ontology (CPM-O)"@en ;
                                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "cpm" ;
                                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://www.commonprovenancemodel.org/cpm#" ;
                                               rdfs:seeAlso <https://github.com/Common-Provenance-Framework> ,

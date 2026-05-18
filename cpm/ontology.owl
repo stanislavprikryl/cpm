@@ -10,15 +10,15 @@
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://www.commonprovenancemodel.org/cpm#">
         <owl:versionIRI rdf:resource="https://www.commonprovenancemodel.org/cpm/1.0.0/cpm.ttl"/>
-        <terms:abstract xml:lang="en">The Common Provenance Model (CPM) ontology provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments.</terms:abstract>
+        <terms:abstract xml:lang="en">The Common Provenance Model Ontology (CPM-O) provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments.</terms:abstract>
         <terms:contributor>RNDr. Rudolf Wittner</terms:contributor>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-05</terms:created>
         <terms:creator xml:lang="en">Bc. Stanislav Přikryl</terms:creator>
         <terms:description xml:lang="en">The normative OWL 2 ontology representing the Common Provenance Model (CPM). It is designed to support the traceability of samples and data in multi-organizational environments, as defined by the Common Provenance Framework (CPF).</terms:description>
         <terms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
         <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-17</terms:modified>
-        <terms:source rdf:resource="https://doi.org/10.5281/zenodo.18063102"/>
-        <terms:title xml:lang="en">Common Provenance Model (CPM) Ontology</terms:title>
+        <terms:source rdf:resource="https://doi.org/10.5281/zenodo.19889324"/>
+        <terms:title xml:lang="en">Common Provenance Model Ontology (CPM-O)</terms:title>
         <vann:preferredNamespacePrefix>cpm</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://www.commonprovenancemodel.org/cpm#</vann:preferredNamespaceUri>
         <rdfs:seeAlso rdf:resource="https://github.com/Common-Provenance-Framework"/>
