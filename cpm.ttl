@@ -11,7 +11,7 @@ cpm: a owl:Ontology ;
     dct:title "Common Provenance Model Ontology (CPM-O)"@en ;
     dct:description "The normative OWL 2 ontology representing the Common Provenance Model (CPM). It is designed to support the traceability of samples and data in multi-organizational environments, as defined by the Common Provenance Framework (CPF)."@en ;
     dct:abstract "The Common Provenance Model (CPM) ontology provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments."@en ;
-    dct:creator "Bc. Stanislav Přikryl"@en ;
+    dct:creator "Bc. Stanislav Prikryl"@en ;
     dct:contributor "RNDr. Rudolf Wittner" ;
     dct:created "2026-02-05"^^xsd:date ;
     dct:modified "2026-03-17"^^xsd:date ;

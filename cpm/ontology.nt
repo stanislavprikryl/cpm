@@ -3,7 +3,7 @@
 <https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/abstract> "The Common Provenance Model Ontology (CPM-O) provides a formal, machine-actionable vocabulary for tracking the provenance of samples and data in multi-organizational environments."@en .
 <https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/contributor> "RNDr. Rudolf Wittner" .
 <https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/created> "2026-02-05"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/creator> "Bc. Stanislav Přikryl"@en .
+<https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/creator> "Bc. Stanislav Prikryl"@en .
 <https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/description> "The normative OWL 2 ontology representing the Common Provenance Model (CPM). It is designed to support the traceability of samples and data in multi-organizational environments, as defined by the Common Provenance Framework (CPF)."@en .
 <https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> .
 <https://www.commonprovenancemodel.org/cpm#> <http://purl.org/dc/terms/modified> "2026-03-17"^^<http://www.w3.org/2001/XMLSchema#date> .

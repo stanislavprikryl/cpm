@@ -421,7 +421,7 @@
   } ],
   "http://purl.org/dc/terms/creator" : [ {
     "@language" : "en",
-    "@value" : "Bc. Stanislav Přikryl"
+    "@value" : "Bc. Stanislav Prikryl"
   } ],
   "http://purl.org/dc/terms/description" : [ {
     "@language" : "en",
